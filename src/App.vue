@@ -10,7 +10,7 @@
 
     <v-content>
       <img alt="Vue logo" src="./assets/logo.png">
-      <HelloWorld msg="Welcome a tu app de notitas"></HelloWorld>
+      <HelloWorld msg="Welcome a tu app de notitas"/>
     </v-content>
     <!-- VUE VUE VUE
     <v-app-bar
