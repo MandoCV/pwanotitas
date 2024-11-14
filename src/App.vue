@@ -1,24 +1,10 @@
 <template>
-  <v-app> 
-    <v-toolbar app>
-      <v-icon>arrow_back</v-icon>
-      <v-toolbar-title>
-        <span>VueNoteApp</span>
-      </v-toolbar-title>
-      <v-spacer></v-spacer>
-    </v-toolbar>
-
-    <v-content>
-      <img alt="Vue logo" src="./assets/logo.png">
-      <HelloWorld msg="Welcome a tu app de notitas"/>
-    </v-content>
-    <!-- VUE VUE VUE
+  <v-app>
     <v-app-bar
       app
       color="primary"
       dark
     >
-   
       <div class="d-flex align-center">
         <v-img
           alt="Vuetify Logo"
@@ -54,7 +40,6 @@
     <v-main>
       <HelloWorld/>
     </v-main>
-    -->
   </v-app>
 </template>
 
