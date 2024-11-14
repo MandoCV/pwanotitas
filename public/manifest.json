@@ -20,6 +20,7 @@
     "dir": "auto",
     "lang": "es-419",
     "name": "NoteVueApp",
-    "short_name": "notitas"
+    "short_name": "notitas",
+    "description":"Our very first Progressive Web App using VueJS"
   }
   

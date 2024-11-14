@@ -13,11 +13,16 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css">
     <script>
-      if('serviceWorker' in navigator){
-        window.addEventListener('load', function(){
-          navigator.serviceWorker.register('/sw.js');
-        });
-      }
+      if('serviceWorker' in navigator) {
+        window.addEventListener('load' , function() {
+          navigator.serviceWorker.register('/sw.js').
+          then(function(registration){
+            console.log('SW registrado.');
+          },function(err){
+            console.log('Ya se pudrio todo :(', err);
+        })
+      });
+    }
     </script>
   </head>
   <body>
