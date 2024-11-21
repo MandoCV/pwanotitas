@@ -13,17 +13,54 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css">
     <script>
-      if('serviceWorker' in navigator) {
-        window.addEventListener('load' , function() {
-          navigator.serviceWorker.register('/sw.js').
-          then(function(registration){
-            console.log('SW registrado.');
-          },function(err){
-            console.log('Ya se pudrio todo :(', err);
-        })
+      // Service Worker registration
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function () {
+          navigator.serviceWorker.register('/sw.js')
+            .then(function (registration) {
+              console.log('SW registrado.');
+            })
+            .catch(function (err) {
+              console.log('Ya se pudrió todo :(', err);
+            });
+        });
+      }
+
+      // Promise example
+      const someValue = "Success!";
+      const myPromise = new Promise((resolve, reject) => {
+        resolve(someValue);
+        // reject("Razon de la falla");
       });
-    }
+
+      myPromise.then(
+        (response) => {
+          console.log("Exitazo", response);
+        }
+      ).catch(
+        (error) => {
+          console.log("Fallo feo", error);
+        }
+      );
+
+      // Image fetch and display
+      var myImage = document.querySelector('img');
+      fetch('icon512_rounded.png')
+        .then(function (response) {
+          if (!response.ok) {
+            throw new Error('Image not found');
+          }
+          return response.blob();
+        })
+        .then(function (myBlob) {
+          var objectURL = URL.createObjectURL(myBlob);
+          myImage.src = objectURL;
+        })
+        .catch(function (error) {
+          console.log('Error fetching image:', error);
+        });
     </script>
+
   </head>
   <body>
     <noscript>
