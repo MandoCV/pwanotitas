@@ -3,5 +3,6 @@ vue add vuetify
 npm install workbox-cli --global
 npm run build
 workbox generateSW workbox-config.js
+
 npm install -g serve
 serve -s dist    

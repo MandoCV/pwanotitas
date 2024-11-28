@@ -32,3 +32,51 @@ self.addEventListener('activate',event =>{
         ))
     );
 });
+
+
+//Estrategia cache 
+self.addEventListener('fetch', event =>
+    event.respondWith(
+        caches.match(event.request).then(function(response) {
+            return response || fetch(event.request);
+        })
+    )
+);
+
+
+
+//Estrategia network first
+
+self.addEventListener('fetch', event =>{
+    event.respondWith(
+        fetch(event.request).catch(function(){
+            return caches.match(event.request);
+        })
+    )
+}
+);
+
+
+
+//Estrategia staale-with-revalidate
+
+self.addEventListener('fetch', (event) =>{
+    event.respondWith(
+        caches.open(currentCache)
+        .then(function(cache){
+            return cache.match(event.request)
+            .then(function(response){
+                var fetchPromise = fetch(event.request)
+                .then(function(networkResponse){
+                    cache.put(event.request, networkResponse.clone());
+                        return networkResonse;
+                    
+                })
+                return response || fetchPromise;
+            })
+
+        })
+    )
+}
+);
+
